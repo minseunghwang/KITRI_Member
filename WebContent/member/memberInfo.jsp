@@ -13,11 +13,10 @@
 <%
 	JoinDaoImpl service = new JoinDaoImpl();
 	Member m = service.select((String)session.getAttribute("id"));
-	
 %>
 
 <h3>정보수정</h3>
-<form action="<%=request.getContextPath() %>/UpdateController" method="post">
+<form action="<%=request.getContextPath() %>/SearchController" method="post">
 	id: <input type="text" name="updid" value=<%=session.getAttribute("id")%>><br />
 	pwd: <input type="text" name="updpwd" value=<%=m.getPwd()%>><br />
 	name: <input type="text" name="updname" value=<%=m.getName()%>><br />

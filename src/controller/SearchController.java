@@ -16,13 +16,13 @@ import model.Member;
  * Servlet implementation class UpdateController
  */
 @WebServlet("/UpdateController")
-public class UpdateController extends HttpServlet {
+public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateController() {
+    public SearchController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -51,7 +51,7 @@ public class UpdateController extends HttpServlet {
 		service.update(m);
 		
 		// 메뉴 페이지로 이동
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/result.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/memberInfo.jsp");
 		if(dispatcher != null) {
 			dispatcher.forward(request, response);
 		}

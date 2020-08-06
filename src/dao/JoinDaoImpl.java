@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import conn.DBConnect;
 import model.Member;
@@ -127,8 +128,34 @@ public class JoinDaoImpl implements JoinDao {
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-
+		Connection conn = null;
+		
+		String sql = "delete member2 where id=?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			// 커넥션 객체 획득
+			conn = db.getConnection();
+			
+			// java에서 sql을 실행하는 PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			
+			// sql의 ? 파라미터 매칭
+			pstmt.setString(1, id);
+			
+			// sql 실행
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 자원 반환
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
-
 }

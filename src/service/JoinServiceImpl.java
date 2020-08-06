@@ -19,17 +19,17 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public Member getMember(String id) {
-		return null;
+		return dao.select(id);
 	}
 
 	@Override
 	public void editMember(Member m) {
-		
+		dao.update(m);
 	}
 
 	@Override
 	public void delMember(String id) {
-		
+		dao.delete(id);
 	}
 	
 }

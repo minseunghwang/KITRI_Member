@@ -19,7 +19,7 @@
 	<%= id %>님 로그인
 	<br>
 	<a href="<%=request.getContextPath()%>/LogoutController">로그아웃</a><br>
-	<a href="<%=request.getContextPath() %>/member/updateForm.jsp">정보수정</a>
+	<a href="<%=request.getContextPath() %>/member/memberInfo.jsp">정보수정</a>
 	<br>
 	<%
 		} else {
